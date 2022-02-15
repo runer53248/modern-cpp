@@ -14,53 +14,57 @@ typedef vector<shared_ptr<Shape>> Collection;
 
 bool sortByArea(shared_ptr<Shape> first, shared_ptr<Shape> second)
 {
-    if(first == nullptr || second == nullptr)
+    if (first == nullptr || second == nullptr) {
         return false;
+    }
     return (first->getArea() < second->getArea());
 }
 
 bool perimeterBiggerThan20(shared_ptr<Shape> s)
 {
-    if(s)
+    if (s) {
         return (s->getPerimeter() > 20);
+    }
     return false;
 }
 
 bool areaLessThan10(shared_ptr<Shape> s)
 {
-    if(s)
+    if (s) {
         return (s->getArea() < 10);
+    }
     return false;
 }
 
 void printCollectionElements(const Collection& collection)
 {
-    for(Collection::const_iterator it = collection.begin(); it != collection.end(); ++it)
-        if(*it)
-            (*it)->print();
+    for (const auto& element : collection) {
+        if(element) {
+            element->print();
+        }
+    }
 }
 
 void printAreas(const Collection& collection)
 {
-    for(vector<shared_ptr<Shape>>::const_iterator it = collection.begin(); it != collection.end(); ++it)
-        if(*it)
-            cout << (*it)->getArea() << std::endl;
+    for (const auto& element : collection) {
+        if(element) {
+            cout << element->getArea() << std::endl;
+        }
+    }
 }
 
 void findFirstShapeMatchingPredicate(const Collection& collection,
                                      bool (*predicate)(shared_ptr<Shape> s),
                                      std::string info)
 {
-    Collection::const_iterator iter = std::find_if(collection.begin(), collection.end(), predicate);
-    if(*iter)
-    {
+    auto iter = std::find_if(collection.begin(), collection.end(), predicate);
+    if (*iter) {
         cout << "First shape matching predicate: " << info << endl;
         (*iter)->print();
+        return;
     }
-    else
-    {
-        cout << "There is no shape matching predicate " << info << endl;
-    }
+    cout << "There is no shape matching predicate " << info << endl;
 }
 
 int main()
