@@ -1,54 +1,49 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-#include <string>
+#include <iostream>
 #include <memory>
-#include "Shape.hpp"
-#include "Rectangle.hpp"
-#include "Square.hpp"
+#include <string>
+#include <vector>
 #include "Circle.hpp"
+#include "Rectangle.hpp"
+#include "Shape.hpp"
+#include "Square.hpp"
 
 using namespace std;
 
 using Collection = vector<shared_ptr<Shape>>;
 
-bool sortByArea(shared_ptr<Shape> first, shared_ptr<Shape> second)
-{
+bool sortByArea(shared_ptr<Shape> first, shared_ptr<Shape> second) {
     if (first == nullptr || second == nullptr) {
         return false;
     }
     return (first->getArea() < second->getArea());
 }
 
-bool perimeterBiggerThan20(shared_ptr<Shape> s)
-{
+bool perimeterBiggerThan20(shared_ptr<Shape> s) {
     if (s) {
         return (s->getPerimeter() > 20);
     }
     return false;
 }
 
-bool areaLessThan10(shared_ptr<Shape> s)
-{
+bool areaLessThan10(shared_ptr<Shape> s) {
     if (s) {
         return (s->getArea() < 10);
     }
     return false;
 }
 
-void printCollectionElements(const Collection& collection)
-{
+void printCollectionElements(const Collection& collection) {
     for (const auto& element : collection) {
-        if(element) {
+        if (element) {
             element->print();
         }
     }
 }
 
-void printAreas(const Collection& collection)
-{
+void printAreas(const Collection& collection) {
     for (const auto& element : collection) {
-        if(element) {
+        if (element) {
             cout << element->getArea() << endl;
         }
     }
@@ -56,8 +51,7 @@ void printAreas(const Collection& collection)
 
 void findFirstShapeMatchingPredicate(const Collection& collection,
                                      bool (*predicate)(shared_ptr<Shape> s),
-                                     string info)
-{
+                                     string info) {
     auto iter = find_if(collection.begin(), collection.end(), predicate);
     if (*iter) {
         cout << "First shape matching predicate: " << info << endl;
@@ -67,8 +61,7 @@ void findFirstShapeMatchingPredicate(const Collection& collection,
     cout << "There is no shape matching predicate " << info << endl;
 }
 
-int main()
-{
+int main() {
     Collection shapes;
     shapes.push_back(make_shared<Circle>(2.0));
     shapes.push_back(make_shared<Circle>(3.0));
@@ -95,4 +88,3 @@ int main()
 
     return 0;
 }
-

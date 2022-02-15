@@ -7,8 +7,7 @@ enum Color : unsigned char {
     White = std::numeric_limits<unsigned char>::max()
 };
 
-class Shape
-{
+class Shape {
 public:
     virtual ~Shape() {}
 
