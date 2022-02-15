@@ -9,7 +9,7 @@ enum Color : unsigned char {
 
 class Shape {
 public:
-    virtual ~Shape() {}
+    virtual ~Shape() = default;
 
     virtual double getArea() const = 0;
     virtual double getPerimeter() const = 0;

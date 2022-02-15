@@ -7,10 +7,6 @@ static_assert(M_PI != 3.14, "M_PI should be more precise than 3.14");
 Circle::Circle(double r)
     : r_(r) {}
 
-Circle::Circle(const Circle& other) {
-    r_ = other.getRadius();
-}
-
 double Circle::getArea() const {
     return M_PI * r_ * r_;
 }
