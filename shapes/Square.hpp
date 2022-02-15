@@ -10,7 +10,7 @@ public:
 
     double getY() = delete;
 
-    double getArea();
-    double getPerimeter();
-    void print();
+    double getArea() const override;
+    double getPerimeter() const override;
+    void print() const override;
 };
