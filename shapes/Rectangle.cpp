@@ -25,5 +25,6 @@ void Rectangle::print() const {
     std::cout << "Rectangle:   x: " << getX() << std::endl
               << "             y: " << getY() << std::endl
               << "          area: " << getArea() << std::endl
-              << "     perimeter: " << getPerimeter() << std::endl;
+              << "     perimeter: " << getPerimeter() << std::endl
+              << "         color: " << color_ << std::endl;
 }

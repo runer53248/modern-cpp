@@ -4,6 +4,7 @@
 
 class Square : public Rectangle {
 public:
+    using Rectangle::Rectangle;
     Square() = delete;
     Square(double x);
     Square(const Square& other) = default;
