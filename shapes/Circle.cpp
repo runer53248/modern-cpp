@@ -1,18 +1,18 @@
 #include "Circle.hpp"
-#include <cmath>
+#include <numbers>
 #include <iostream>
 
-static_assert(M_PI != 3.14, "M_PI should be more precise than 3.14");
+static_assert( std::numbers::pi != 3.14, "M_PI should be more precise than 3.14");
 
 Circle::Circle(double r)
     : r_(r) {}
 
 double Circle::getArea() const {
-    return M_PI * r_ * r_;
+    return std::numbers::pi * r_ * r_;
 }
 
 double Circle::getPerimeter() const {
-    return 2 * M_PI * r_;
+    return 2 * std::numbers::pi * r_;
 }
 
 double Circle::getRadius() const {
@@ -24,4 +24,8 @@ void Circle::print() const {
               << "          area: " << getArea() << std::endl
               << "     perimeter: " << getPerimeter() << std::endl
               << "         color: " << color_ << std::endl;
+}
+
+double Circle::getPi() {
+    return std::numbers::pi;
 }

@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Shape.hpp"
 
 class Circle final : public Shape {
@@ -14,6 +13,7 @@ public:
     void print() const override;
     
     double getRadius() const;
+    [[deprecated]]static double getPi();
 
 private:
     double r_{};

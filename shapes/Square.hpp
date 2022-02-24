@@ -6,7 +6,7 @@ class Square : public Rectangle {
 public:
     using Rectangle::Rectangle;
     Square() = delete;
-    Square(double x);
+    explicit Square(double x);
     Square(const Square& other) = default;
 
     double getY() = delete;

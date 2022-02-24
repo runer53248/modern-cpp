@@ -1,7 +1,7 @@
 #pragma once
 #include <ostream>
 
-enum Color : unsigned char {
+enum class Color : unsigned char {
     Black,
     Red,
     White
