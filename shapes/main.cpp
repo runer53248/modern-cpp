@@ -90,6 +90,8 @@ int main() {
     findFirstShapeMatchingPredicate(shapes, perimeterBiggerThan20, "perimeter bigger than 20");
     findFirstShapeMatchingPredicate(shapes, areaLessThan10, "area less than 10");
 
+    cout << "alignof Circle = " << alignof(Circle) << endl;
+
     cout << "Pi = " << Circle::getPi() << endl;
 
     return 0;

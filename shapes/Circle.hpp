@@ -1,7 +1,7 @@
 #pragma once
 #include "Shape.hpp"
 
-class Circle final : public Shape {
+class alignas(8) Circle final : public Shape {
 public:
     using Shape::Shape;
     Circle() = delete;
