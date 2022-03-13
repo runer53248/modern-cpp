@@ -3,6 +3,8 @@
 #include <memory>
 #include <string>
 #include <vector>
+#include <map>
+
 #include "Circle.hpp"
 #include "Rectangle.hpp"
 #include "Shape.hpp"
@@ -11,6 +13,7 @@
 using namespace std;
 
 using Collection = vector<shared_ptr<Shape>>;
+using ShapePerimeterMap = map<shared_ptr<Shape>, double>;
 
 bool sortByArea(shared_ptr<Shape> first, shared_ptr<Shape> second) {
     if (first == nullptr || second == nullptr) {
@@ -93,6 +96,17 @@ int main() {
     cout << "alignof Circle = " << alignof(Circle) << endl;
 
     cout << "Pi = " << Circle::getPi() << endl;
+
+    ShapePerimeterMap shapesPerimeter{};
+    for(auto shape: shapes) {
+        if(shape) {
+            shapesPerimeter.emplace(shape, shape->getPerimeter());
+        }
+    }
+
+    for(auto&& [shape, perimeter] : shapesPerimeter) {
+        cout << "shape adress " << shape.get()  << " perimeter = " << perimeter << endl;
+    }
 
     return 0;
 }
